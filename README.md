@@ -1,6 +1,6 @@
 <img align="right" width="250" height="47" src="/Material/images/Gematik_Logo_Flag.svg"/> <br/> 
 
-# ISiK-Sicherheit
+# ISiK-Connect
 
 <details>
   <summary>Table of Contents</summary>

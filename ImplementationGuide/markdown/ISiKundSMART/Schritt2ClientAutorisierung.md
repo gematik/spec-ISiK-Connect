@@ -6,7 +6,7 @@
 
 Im nachfolgenden Schritt wird durch den Client an dem "authorize"-Endpunkt des Autorisierungsservers ein Autorisierungscode angefragt, welcher innerhalb eines Authorization Code Flows (vgl. [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)) durch ein OAuth 2.0 Access Token ersetzt werden kann.
 
-Abhängig davon, ob der Client durch einen _EHR Launch_ oder _Standalone Launch_ (siehe ['ISiK-Sicherheit: Autorisierung'](ISiKAutorisierung.md)) gestartet wird, existieren unterschiedliche Schritte für die Anfrage eines Autorisierungscodes.
+Abhängig davon, ob der Client durch einen _EHR Launch_ oder _Standalone Launch_ (siehe ['ISiK-Sicherheit: Autorisierung'](../ISiKAutorisierung.md)) gestartet wird, existieren unterschiedliche Schritte für die Anfrage eines Autorisierungscodes.
 
 ----
 
@@ -20,7 +20,7 @@ Es sei darauf hingewiesen, dass jeder EHR Launch mit einem eindeutigen Launch Pa
 
 ## Standalone Launch Sequence
 
-Aufgrund des fehlenden Kontexts zwischen Client und dem System, kann der Client durch Angabe von gewünschten Smart Launch Scopes bestimmen, welche Details durch den Autorisierungsserver in der Access Token Response bereitgestellt werden müssen. Beispielsweise kann, äquivalent zum EHR Launch, der Patienten- und/oder Kontakt/Fall-Kontext angefordert werden. Die Kodierung der Scopes ist im normativen Teil von ISiK-Sicherheit auf der Seite ['Scopes und Kontexte'](ConformanceScopesKontexte.md) beschrieben. 
+Aufgrund des fehlenden Kontexts zwischen Client und dem System, kann der Client durch Angabe von gewünschten Smart Launch Scopes bestimmen, welche Details durch den Autorisierungsserver in der Access Token Response bereitgestellt werden müssen. Beispielsweise kann, äquivalent zum EHR Launch, der Patienten- und/oder Kontakt/Fall-Kontext angefordert werden. Die Kodierung der Scopes ist im normativen Teil von ISiK-Sicherheit auf der Seite ['Scopes und Kontexte'](../Conformance.md) beschrieben. 
 
 ----
 
@@ -34,7 +34,7 @@ Zu beachten ist, dass durch den SMART App Launch der "state"-Parameter abweichen
 
 ## TLS
 
-Alle Autorisierungsendpunkte müssen per HTTPS (TLS-Verschlüsselung) erreichbar sein. Im Echtbetrieb muss die Kommunikation ausschließlich per HTTPS erfolgen. Vorgaben zur einzusetzenden TLS Version, siehe [Sicherheitsaspekte](https://simplifier.net/guide/implementierungsleitfadenisik-basismodul/I-markdown-UebergreifendeFestlegungen-UebergreifendeFestlegungen-Rest?version=current).
+Alle Autorisierungsendpunkte müssen per HTTPS (TLS-Verschlüsselung) erreichbar sein. Im Echtbetrieb muss die Kommunikation ausschließlich per HTTPS erfolgen. Vorgaben zur einzusetzenden TLS Version, siehe [Sicherheitsaspekte](https://simplifier.net/guide/isik-basis-v3/markdown-UebergreifendeFestlegungen-UebergreifendeFestlegungen?version=current).
 
 ----
 
@@ -52,7 +52,7 @@ Um Informationen über die authentifizierten Endbenutzer:in zu erhalten, kann ei
 
 ## Hinweise zu Access Scopes
 
-Innerhalb des Scope Parameters, welcher als Teil der Autorisierungsanfrage versendet wird, kann der Client dem Server mitteilen, welche Scopes zur korrekten Ausführung notwendig sind, d.h. welche FHIR-Restful Interaktionen vom Client benötigt werden. Diese Scopes repräsentieren die Menge aller Scopes, welche durch den Client gewünscht werden, jedoch nicht notwendigerweise durch den Server unterstüzt und/oder erlaubt werden. Es steht dem Autorisierungsserver frei diese Scopes einzuschränken, falls der Client für die Anforderung der Scopes nicht berechtigt ist. Weitere Details zur Syntax der Access Scopes siehe ['Scopes und Kontexte'](ConformanceScopesKontexte.md).
+Innerhalb des Scope Parameters, welcher als Teil der Autorisierungsanfrage versendet wird, kann der Client dem Server mitteilen, welche Scopes zur korrekten Ausführung notwendig sind, d.h. welche FHIR-Restful Interaktionen vom Client benötigt werden. Diese Scopes repräsentieren die Menge aller Scopes, welche durch den Client gewünscht werden, jedoch nicht notwendigerweise durch den Server unterstüzt und/oder erlaubt werden. Es steht dem Autorisierungsserver frei diese Scopes einzuschränken, falls der Client für die Anforderung der Scopes nicht berechtigt ist. Weitere Details zur Syntax der Access Scopes siehe ['Scopes und Kontexte'](../Conformance.md).
 
 Hieraus folgt, dass die angeforderten Scopes nur die Kategorien an Rechten repräsentieren, die an den anfragenden Client delegiert werden dürfen. Somit können generell bestimmte Rechte ausgeschlossen werden. Eine Anfrage an den FHIR-REST-API-Endpunkt kann jedoch trotz validem Token mit den spezifizierten Scopes abgelehnt werden, falls während der Evaluierung der Anfrage seitens des Servers festgestellt wird, dass der Benutzer die gewünschten Ressourcen nicht verarbeiten darf.
 
